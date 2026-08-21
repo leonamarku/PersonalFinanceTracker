@@ -1,0 +1,19 @@
+## .NET build outputs
+bin/
+obj/
+
+## SQLite database files (auto-generated on first run — do not commit)
+*.db
+*.db-shm
+*.db-wal
+
+## User-specific VS / Rider files
+.vs/
+.idea/
+*.user
+
+## macOS
+.DS_Store
+
+## Secrets
+appsettings.Production.json

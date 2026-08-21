@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper"                                    Version="13.0.1" />
+    <PackageReference Include="BCrypt.Net-Next"                               Version="4.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore"                 Version="10.0.0" />
+
+    <!--
+      SQLite  — used by default for local development (macOS / Linux / Windows).
+      No installation required; EF creates a single .db file automatically.
+    -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite"          Version="10.0.0" />
+
+    <!--
+      SQL Server — kept for Azure production deployment.
+      Switch by setting  "DatabaseProvider": "SqlServer"  in appsettings.
+    -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer"       Version="10.0.0" />
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design"          Version="10.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens"                Version="8.9.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt"               Version="8.9.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PersonalFinanceTracker.Core\PersonalFinanceTracker.Core.csproj" />
+  </ItemGroup>
+</Project>

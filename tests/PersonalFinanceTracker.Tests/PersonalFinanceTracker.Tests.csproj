@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Test runner -->
+    <PackageReference Include="Microsoft.NET.Test.Sdk"                    Version="17.13.0" />
+    <PackageReference Include="xunit"                                      Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio"                  Version="2.8.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector"                         Version="6.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+
+    <!-- Mocking / assertions -->
+    <PackageReference Include="Moq"                                        Version="4.20.72" />
+    <PackageReference Include="FluentAssertions"                           Version="6.12.2" />
+
+    <!-- AutoMapper (needed directly by service + controller tests) -->
+    <PackageReference Include="AutoMapper"                                 Version="13.0.1" />
+
+    <!-- EF Core base + InMemory provider (required by AccountRepositoryTests) -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore"              Version="10.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory"     Version="10.0.0" />
+
+    <!-- BCrypt (used directly in AuthServiceTests to hash test passwords) -->
+    <PackageReference Include="BCrypt.Net-Next"                            Version="4.0.3" />
+
+    <!-- Configuration (used in AuthServiceTests: ConfigurationBuilder + AddInMemoryCollection) -->
+    <PackageReference Include="Microsoft.Extensions.Configuration"         Version="10.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\PersonalFinanceTracker.Core\PersonalFinanceTracker.Core.csproj" />
+    <ProjectReference Include="..\..\src\PersonalFinanceTracker.Infrastructure\PersonalFinanceTracker.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\PersonalFinanceTracker.API\PersonalFinanceTracker.API.csproj" />
+  </ItemGroup>
+</Project>
